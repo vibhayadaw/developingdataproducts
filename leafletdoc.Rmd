@@ -1,0 +1,30 @@
+---
+title: "leaflet"
+author: "Vibha Singh"
+date: "December 8, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sample Location
+```{r, echo=FALSE}
+library(leaflet)
+hopkinsIcon <- makeIcon(
+  iconUrl = "http://brand.jhu.edu/content/uploads/2014/06/university.shield.small_.blue_.png",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+
+my_map <- leaflet() %>% 
+  addTiles()
+
+my_map <- my_map %>%
+  addMarkers(lat=39.2973166, lng=-76.5929798, 
+             popup="Sample Location", icon = hopkinsIcon)
+my_map
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
